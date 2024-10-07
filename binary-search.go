@@ -7,7 +7,7 @@ import (
 )
 
 func report() {
-	testCases := []int{10, 100, 1000, 10000, 1000000, 10000000} 
+	testCases := []int{10, 100}
 	for i := 0; i < len(testCases); i++{
 		CallBinarySearch(testCases[i])
 	}
@@ -16,6 +16,7 @@ func report() {
 func CallBinarySearch(len int) {
 	fmt.Println("\nFucking binary search:")
 	array, target := generateBinarySearch(len)
+	fmt.Println("array: ", array)
 	fmt.Println("array size: ", len)
 	fmt.Println("target:", target)
 	index, steps, timeTaken := BinarySearch(array, target)
@@ -47,7 +48,7 @@ func BinarySearch(array []float32, target float32) (index int, steps int, timeTa
 	}
 	if lenA == 1 {
 		endTime = time.Since(startTime)
-		return 1, 1, endTime
+		return 1, 0, endTime
 	}
 
 	var left int = 0
@@ -63,7 +64,8 @@ func BinarySearch(array []float32, target float32) (index int, steps int, timeTa
 			continue
 		}
 		if array[arrow] < target {
-			left = arrow
+			// é + 1 em caso de valores repetidos no array, se nao ia cair num loop infinito
+			left = arrow + 1 
 			continue
 		}
 

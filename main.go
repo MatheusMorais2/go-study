@@ -10,9 +10,10 @@ import (
 
 func main() {
 	fmt.Println("This program aims to give examples and a deeper understanding, for me at least, about algorithms and data structures\n\n")
-	ArrayAddresses()
-	report()
-	memoryAllocation()
+	// ArrayAddresses()
+	// report()
+	// memoryAllocation()
+	CrystalBall()
 }
 
 func StringMemoryAnalisys() {
